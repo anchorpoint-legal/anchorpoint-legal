@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ title or 'AnchorPointCompliance | Legal & Compliance Consulting Services' }}</title>
+
+    <meta name="keywords"
+        content="{{ meta_keywords or 'Legal Consulting, Compliance Services, Regulatory Advisory, Government Consulting' }}" />
+    <meta name="description"
+        content="{{ meta_description or 'AnchorPointCompliance Legal Services - Non-Litigation Advisory for Government Agencies and Regulated Organizations.' }}">
+    <meta name="author" content="AnchorPointCompliance">
+
+    {% include "partials/head-assets.njk" %}
+    {% block head_extra %}{% endblock %}
+</head>
+
+<body class="loading">
+    <div id="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+    <div class="body">
+        {% include "partials/header.njk" %}
+
+        <div role="main" class="main">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% include "partials/footer.njk" %}
+    </div>
+
+    {% include "partials/compliance-banner.njk" %}
+    {% include "partials/scripts.njk" %}
+    {% block scripts_extra %}{% endblock %}
+    
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            document.body.classList.remove('loading');
+            var preloader = document.getElementById('preloader');
+            if(preloader) {
+                preloader.classList.add('loaded');
+            }
+        });
+    </script>
+</body>
+
+</html>
