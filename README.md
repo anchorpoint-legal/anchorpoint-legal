@@ -19,6 +19,16 @@ npm run build
 
 The built files will be in the `dist` directory.
 
+## Contact Form Setup
+
+The contact form uses [Web3Forms](https://web3forms.com/) for form submissions. To configure:
+
+1. Get your free access key from [web3forms.com](https://web3forms.com/)
+2. Replace `YOUR_ACCESS_KEY_HERE` in `src/pages/contact-body.njk` with your actual key
+3. Rebuild the site with `npm run build`
+
+See [WEB3FORMS_SETUP.md](WEB3FORMS_SETUP.md) for detailed setup instructions and customization options.
+
 ## Deployment to GitHub Pages
 
 This repository is configured to automatically deploy to GitHub Pages using GitHub Actions.
