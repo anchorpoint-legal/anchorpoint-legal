@@ -1,26 +1,73 @@
-AnchorPointCompliance Legal Services
+# AnchorPointCompliance Legal Services
+
 This is the source code for the AnchorPointCompliance website, built with Vite and Nunjucks templates.
 
-## Getting the site online (GitHub Pages)
-### 1. Set the right path
-By default, the site is set up to live at the root (like `www.anchorpointcompliance.com`). 
+## Development
 
-If you're using a standard GitHub Pages project link (like `username.github.io/anchorpointcompliance/`), you'll need to:
-1. Open up `vite.config.js`.
-2. Change the `base` setting to match your repo name:
-   ```javascript
-   base: "/anchorpointcompliance/",
-   ```
+### Local Development
+```bash
+npm install
+npm run dev
+```
 
-### 2. Turn on GitHub Actions
-We've already set up a workflow (`.github/workflows/deploy.yml`) that handles the heavy lifting. It'll automatically push your changes live whenever you update the `main` branch.
+The site will be available at http://localhost:3000
 
-To enable it:
-1. Head over to your repo on GitHub.
-2. Go to **Settings** > **Pages**.
-3. Under **Build and deployment**, switch the **Source** to **GitHub Actions**.
+### Build for Production
+```bash
+npm run build
+```
 
-### 3. Want to deploy manually?
-If you'd rather do it from your own machine:
-1. `npm install` (if you haven't already).
-2. `npm run deploy`.
+The built files will be in the `dist` directory.
+
+## Deployment to GitHub Pages
+
+This repository is configured to automatically deploy to GitHub Pages using GitHub Actions.
+
+### Automatic Deployment (Recommended)
+
+The site automatically deploys when you push to the `main` branch. The workflow is configured in `.github/workflows/deploy.yml`.
+
+#### Setup Instructions:
+
+1. **Enable GitHub Pages:**
+   - Go to your repository on GitHub
+   - Navigate to **Settings** > **Pages**
+   - Under **Build and deployment**, set **Source** to **GitHub Actions**
+
+2. **Push to Main Branch:**
+   - Any push to the `main` branch will trigger an automatic deployment
+   - The workflow will build the site and deploy it to GitHub Pages
+
+3. **View Your Site:**
+   - After deployment completes, your site will be available at:
+   - `https://anchorpoint-legal.github.io/anchorpoint-legal/`
+   - Or your custom domain if configured
+
+### Configuration Notes
+
+- **Base Path:** The site is configured for GitHub Pages project deployment at `/anchorpoint-legal/`
+- **Custom Domain:** To use a custom domain, update the `base` path in `vite.config.js` to `/` and configure your domain in GitHub Pages settings
+- **Branch:** The workflow deploys from the `main` branch only
+
+### Manual Deployment (Alternative)
+
+If you prefer to deploy manually from your local machine:
+
+```bash
+npm install
+npm run deploy
+```
+
+This will build the site and push it to the `gh-pages` branch.
+
+**Note:** Manual deployment requires the `gh-pages` package and appropriate Git permissions.
+
+## Workflow Features
+
+The GitHub Actions workflow includes:
+- ✅ Automatic builds on push to main
+- ✅ Node.js dependency caching for faster builds
+- ✅ Proper permissions for GitHub Pages deployment
+- ✅ Concurrency control to prevent deployment conflicts
+- ✅ `.nojekyll` file for proper asset handling
+- ✅ Manual workflow dispatch option

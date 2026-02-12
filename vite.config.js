@@ -9,7 +9,9 @@ const nunjucksEnv = new nunjucks.Environment(
 );
 
 export default defineConfig({
-  base: process.env.VITE_BASE_PATH || "/",
+  // For GitHub Pages deployment: /repo-name/
+  // For custom domain or username.github.io: /
+  base: process.env.VITE_BASE_PATH || "/anchorpoint-legal/",
   plugins: [
     nunjucksPlugin({
       nunjucksEnvironment: nunjucksEnv,
@@ -17,6 +19,7 @@ export default defineConfig({
   ],
   build: {
     outDir: "dist",
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
