@@ -37,7 +37,8 @@
 
 						// Reset Form
 						form.reset();
-						$form.find('.form-control').val('').blur().parent().removeClass('has-success').removeClass('has-danger');
+						$form.validate().resetForm();
+						$form.find('.form-control').val('').parent().removeClass('has-success').removeClass('has-danger');
 						
 						// Reset Button
 						$submitButton.prop('disabled', false).val('Submit Inquiry');
