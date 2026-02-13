@@ -21,13 +21,17 @@ The built files will be in the `dist` directory.
 
 ## Contact Form Setup
 
-The contact form uses [Web3Forms](https://web3forms.com/) for form submissions. To configure:
+The contact form uses [Web3Forms](https://web3forms.com/) for form submissions. 
+
+**Important:** Web3Forms access keys are safe to paste directly in your HTML! They are designed for client-side use and cannot be used to access your account or sensitive data.
+
+To configure:
 
 1. Get your free access key from [web3forms.com](https://web3forms.com/)
 2. Replace `YOUR_ACCESS_KEY_HERE` in `src/pages/contact-body.njk` with your actual key
 3. Rebuild the site with `npm run build`
 
-See [WEB3FORMS_SETUP.md](WEB3FORMS_SETUP.md) for detailed setup instructions and customization options.
+See [WEB3FORMS_SETUP.md](WEB3FORMS_SETUP.md) for detailed setup instructions, security information, and customization options.
 
 ## Deployment to GitHub Pages
 
